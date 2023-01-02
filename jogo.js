@@ -18,7 +18,6 @@ function posicaoRandom() {
         document.getElementById('barata').remove()
     }
 
-
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
 
