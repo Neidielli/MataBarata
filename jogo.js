@@ -1,6 +1,8 @@
  
 var altura = 0
-var largura = 0 
+var largura = 0
+var vidas =  1
+var tempo = 10
 
 function ajustaPalco() {     
     altura = window.innerHeight
@@ -11,11 +13,36 @@ function ajustaPalco() {
 
 ajustaPalco()
 
+var cronometro = setInterval(function() {
+
+    tempo -= 1
+
+    // se o tempo acabar antes dos pontos de vida: o usuario venceu a partida
+    if(tempo < 0) {
+        // quando houver vitoria, o cronometro e a criação de bartas é pausado
+        clearInterval(cronometro)
+        clearInterval(criaBarata)
+
+        window.location.href = "vitoria.html"
+    } else {
+        document.getElementById('cronometro').innerHTML = tempo
+    }
+},1000)
+
 function posicaoRandom() {
 
     // remove a barata anterior caso exista
     if(document.getElementById('barata')) {
         document.getElementById('barata').remove()
+
+        if(vidas > 3) {
+            // game over
+            window.location.href = "gameover.html"
+        } else {
+            document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+
+            vidas++
+        }
     }
 
     var posicaoX = Math.floor(Math.random() * largura) - 90
@@ -32,7 +59,10 @@ function posicaoRandom() {
     barata.style.left = posicaoX + 'px'
     barata.style.top = posicaoY + 'px'
     barata.style.position = 'absolute'
-    barata.id = 'barata'
+    barata.id = 'barata' 
+    barata.onclick = function() {
+        this.remove()
+    }
 
     document.body.appendChild(barata)
 
