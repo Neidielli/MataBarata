@@ -2,7 +2,18 @@
 var altura = 0
 var largura = 0
 var vidas =  1
-var tempo = 10
+var tempo = 15
+var criaBarataTempo = 1500
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+if(nivel === 'normal') {
+    criaBarataTempo = 1500
+} else if(nivel === 'dificil') {
+    criaBarataTempo = 1000
+} else if(nivel === 'hard') {
+    criaBarataTempo = 750
+}
 
 function ajustaPalco() {     
     altura = window.innerHeight
