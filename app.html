@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Mata Barata</title>
+        <meta charset="UTF-8">
 
         <link rel="stylesheet" href="estilo.css">
         <script src="jogo.js"></script>
@@ -11,21 +12,23 @@
 
         <div class="painel">
             <div class="vidas">
-                <img src="imagens/coracao_vazio.png">
-                <img src="imagens/coracao_cheio.png">
-                <img src="imagens/coracao_cheio.png">
+                <img id="v1" src="imagens/coracao_cheio.png">
+                <img id="v2" src="imagens/coracao_cheio.png">
+                <img id="v3" src="imagens/coracao_cheio.png">
             </div>
 
             <div class="time">Tempo restante: 
-
+                <span id="cronometro"></span>
             </div>
 
         </div>
 
         <script>
-            setInterval(function() {
+            document.getElementById('cronometro').innerHTML = tempo
+
+            var criaBarata = setInterval(function() {
                 posicaoRandom() 
-            }, 1000)
+            }, 2000)
         </script>
 
     </body>
