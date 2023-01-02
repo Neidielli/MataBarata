@@ -12,6 +12,13 @@ function ajustaPalco() {
 ajustaPalco()
 
 function posicaoRandom() {
+
+    // remove a barata anterior caso exista
+    if(document.getElementById('barata')) {
+        document.getElementById('barata').remove()
+    }
+
+
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
 
@@ -22,10 +29,11 @@ function posicaoRandom() {
     // Criar o elementos html
     var barata = document.createElement('img')
     barata.src = 'imagens/Barata.png'
-    barata.className = tamanhoBarataAleatorio() // valor gerado pela função será atribuido a classe
+    barata.className = tamanhoBarataAleatorio() + ' ' + LadoBarataAleatorio() // valor gerado pela função será atribuido a classe
     barata.style.left = posicaoX + 'px'
     barata.style.top = posicaoY + 'px'
     barata.style.position = 'absolute'
+    barata.id = 'barata'
 
     document.body.appendChild(barata)
 
@@ -42,6 +50,17 @@ function tamanhoBarataAleatorio() {
             return 'barata2'
         case 2 :
             return 'barata3'
+     }
+}
+
+function LadoBarataAleatorio() {
+    var classe = Math.floor(Math.random() * 2)
+
+     switch(classe) {
+        case 0:
+            return 'ladoA'
+        case 1:
+            return 'ladoB'
      }
 }
 
