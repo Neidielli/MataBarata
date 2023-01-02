@@ -22,11 +22,26 @@ function posicaoRandom() {
     // Criar o elementos html
     var barata = document.createElement('img')
     barata.src = 'imagens/Barata.png'
-    barata.className = 'barata1'
+    barata.className = tamanhoBarataAleatorio() // valor gerado pela função será atribuido a classe
     barata.style.left = posicaoX + 'px'
     barata.style.top = posicaoY + 'px'
     barata.style.position = 'absolute'
 
     document.body.appendChild(barata)
+
+    tamanhoBarataAleatorio()
+}
+
+function tamanhoBarataAleatorio() {
+     var classe = Math.floor(Math.random() * 3)
+
+     switch(classe) {
+        case 0:
+            return 'barata1'
+        case 1:
+            return 'barata2'
+        case 2 :
+            return 'barata3'
+     }
 }
 
