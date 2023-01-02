@@ -1,4 +1,7 @@
 /* Estilização das tags */
+html {
+    cursor: url(imagens/Mata_Inseto.png) 30 30, auto;
+}
 body {
     background-image: url(imagens/bg.jpg);
     background-repeat: no-repeat;
