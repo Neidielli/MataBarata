@@ -9,4 +9,8 @@
 * Linguagem de programação: JavaScript;
 * IDE de desenvolvimento: Visual Code; 
 * FrameWork: Bootstrap; 
- 
+
+# ⚡ Melhorias:
+ * Tornar a aplicação responsiva.
+
+# ⚙️ Execução:
